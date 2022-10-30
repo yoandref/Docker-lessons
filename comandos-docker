@@ -1,0 +1,67 @@
+Listar containers:
+    docker ps
+    docker ps -a --lista todos os container que já foram executados.
+
+Rodando um container:
+    docker run <nome_imagem>    
+    docker run it <nome_imagem> <comando_executado_no_container>
+    sendo que: it (-i e -t) -i modo iterativo, -t permite digitar comandos.
+    exemplo: docker run it ubuntu bash
+
+    docker run -d -p 80:80 nginx
+    sendo que -d é de detached (libera o terminal)
+
+    docker run -d --name nginx nginx
+    sendo que --name é para nomear o container.
+
+Removendo container:
+    docker --rm <nome_imagem> || docker --rm <id_imagem>
+    docker --rm <nome_imagem> -f || docker --rm <id_imagem> -f
+    sendo que -f é para forçar
+
+Inicializando container:
+    docker start <id_imagem>
+
+Parando container:
+    docker stop <id_container>    
+
+Executando um comando no container:
+    docker exec <id_container> OU <nome_container> <comando_a_ser_executado>    
+
+    Exemplo: docker exec -it <id_ou_nome_container> bash
+    sendo que: it (-i e -t) -i modo iterativo, -t permite digitar comandos.  
+
+Mapeando um volume local para o container:
+    docker run -d --name nginx -p 8080:80 -v /home/andre/Documentos/html/:/usr/share/nginx/html nginx
+
+    Sendo que: /home/andre/Documentos/html/ é o nosso arquivo e :/usr/share/nginx/html e o local onde nosso arquivo será mapeado.
+    -v é o comando para o mapeamento.
+       
+Nginx:
+    docker run -p 8080:80 nginx
+    sendo que -p (publish) estamos mapeando a nossa porta 8080 com a porta 80
+    do container.
+
+==============================================================================
+Volumes:
+
+Listando os volume:
+    docker volume ls
+
+Criando um volume:
+    docker volume create <nome_volume>
+
+Detalhando um volume:
+    docker volume inspect <nome_volume>    
+
+Mapeando um volume para o container:
+    docker run --name <nome_container> -d -v <nome_volume>:/<alvo_container> nginx
+    exemplo: docker run --name nginx -d -v meuVolume:/app nginx
+
+Limpando os volume que não estão sendo utilizados:
+    docker volume prune    
+
+
+
+
+    
