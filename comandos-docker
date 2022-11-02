@@ -61,7 +61,22 @@ Mapeando um volume para o container:
 Limpando os volume que não estão sendo utilizados:
     docker volume prune    
 
+==============================================================================
+Imagens:
 
+Listando Imagens:
+    docker images
 
+Baixnado imagens:
+    docker pull <nome_imagem>
+
+Removendo imagens:
+    docker rmi <nome_imagem>/<id_imagem>
+    
+Criando nossa imagem:
+    
+    docker build -t <nome_que_queremos_para_imagem> <caminho_diretorio>
+    exemplo: docker build -t devandreferreira/nginx-com-vim:latest . 
+    sendo que "." é o diretório atual    
 
     

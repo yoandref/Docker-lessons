@@ -1,0 +1,15 @@
+#imagem que queremos
+FROM nginx:latest
+
+# cria um diretório de trabalho
+WORKDIR /app
+
+#roda o bash
+RUN apt-get update && apt-get install vim -y
+
+#mapeando uma diretório de nossa máquina para o container
+COPY html/ /usr/share/nginx/html
+
+
+#comando para construirmos nossa imagem
+# docker build -t devandreferreira/nginx-com-vim:latest .
