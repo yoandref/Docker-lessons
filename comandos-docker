@@ -19,6 +19,9 @@ Removendo container:
     docker --rm <nome_imagem> -f || docker --rm <id_imagem> -f
     sendo que -f é para forçar
 
+    docker rm $(docker ps -a -q) -f 
+    remove todos os containers sem precisar digitar cada id
+
 Inicializando container:
     docker start <id_imagem>
 
@@ -73,10 +76,10 @@ Baixnado imagens:
 Removendo imagens:
     docker rmi <nome_imagem>/<id_imagem>
     
-Criando nossa imagem:
-    
+Criando nossa imagem:    
     docker build -t <nome_que_queremos_para_imagem> <caminho_diretorio>
     exemplo: docker build -t devandreferreira/nginx-com-vim:latest . 
     sendo que "." é o diretório atual    
+
 
     

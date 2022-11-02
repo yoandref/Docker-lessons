@@ -1,0 +1,12 @@
+FROM ubuntu:latest
+
+#É UM Comando fixo.
+ENTRYPOINT [ "echo", "Hello" ]
+
+#Comando: nao é fixo, pois docker run --rm devandreferreira/hello echo "oi" substitui o echo / hello world 
+#CMD entra como parâmetro para o hello world
+CMD [ "echo", "Andre" ]
+
+
+
+
