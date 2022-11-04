@@ -45,6 +45,13 @@ Nginx:
     sendo que -p (publish) estamos mapeando a nossa porta 8080 com a porta 80
     do container.
 
+Atachando um container:
+    docker attach <nome_imagem>|<id_container>    
+
+Executando um container:
+    docker exec -it <nome_imagem>|<id_container> <comando>
+    Exemplo: docker exec -it ubuntu bash    
+
 ==============================================================================
 Volumes:
 
@@ -80,6 +87,34 @@ Criando nossa imagem:
     docker build -t <nome_que_queremos_para_imagem> <caminho_diretorio>
     exemplo: docker build -t devandreferreira/nginx-com-vim:latest . 
     sendo que "." é o diretório atual    
+
+=============================================================================
+Network:
+# bridge -> rede onde um container se comunica com o outro - rede default
+# é possível pingar containers pelo ip, porém não pelo dns
+# host -> cria uma rede entre o container e a minha própria máquina
+# overlay -> vários containers se comunicam como se estivem na mesma rede, exemplo: docker swarn
+# none -> sem rede
+
+Listando redes:
+    docker network ls
+
+Removendo redes não utilizadas:
+    docker network prune
+
+Inspecionando as redes dos containers:
+    docker network inspect bridge
+
+Criando nossa própria rede:
+    docker network create --driver bridge <nome_rede>
+
+Associando uma rede ao container:
+    docker -dit --name <nome_container> --network <nome_rede> <nome_container>
+    Exemplo: docker run -dit --name ubuntu --network minharede bash
+
+
+
+
 
 
     
